@@ -14,6 +14,7 @@ from config import (
 from program import __version__
 from driver.veez import user
 from driver.filters import command, other_filters
+from driver.database.dbchat import is_served_chat, add_served_chat
 from pyrogram import Client, filters
 from pyrogram import __version__ as pyrover
 from pytgcalls import (__version__ as pytover)
@@ -142,6 +143,11 @@ async def get_uptime(client: Client, message: Message):
 
 @Client.on_message(filters.new_chat_members)
 async def new_chat(c: Client, m: Message):
+    chat_id = m.chat.id
+    if await is_served_chat(chat_id):
+        pass
+    else:
+        await add_served_chat(chat_id)
     ass_uname = (await user.get_me()).username
     bot_id = (await c.get_me()).id
     for member in m.new_chat_members:
