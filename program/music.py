@@ -206,7 +206,7 @@ async def play(c: Client, m: Message):
                                 await m.reply_photo(
                                     photo=image,
                                     reply_markup=InlineKeyboardMarkup(buttons),
-                                    caption=f"🗂 **Name:** [{songname}]({url}) | `music`\n**⏱ Duration:** `{duration}`\n🧸 **Request by:** {requester}",
+                                    caption=f"📡 Started Streaming Audio 💡\n🗂 **Name:** [{songname}]({url}) | `music`\n**⏱ Duration:** `{duration}`\n🧸 **Request by:** {requester}",
                                 )
                             except Exception as ep:
                                 await suhu.delete()
@@ -248,7 +248,7 @@ async def play(c: Client, m: Message):
                             reply_markup=InlineKeyboardMarkup(buttons),
                             caption=f"💡 **Track added to queue »** `{pos}`\n\n🗂 **Name:** [{songname}]({url}) | `music`\n**⏱ Duration:** `{duration}`\n🧸 **Request by:** {requester}",
                         )
-                    else: 
+                    else:
                         try:
                             await suhu.edit("🔄 **Joining vc...**")
                             await call_py.join_group_call(
@@ -266,6 +266,7 @@ async def play(c: Client, m: Message):
                                 photo=image,
                                 reply_markup=InlineKeyboardMarkup(buttons),
                                 caption=f"📡 Started Streaming Audio 💡\n\n🗂 **Name:** [{songname}]({url}) | `music`\n**⏱ Duration:** `{duration}`\n👤 **Requested By:** {requester}",
+                            )
                         except Exception as ep:
                             await suhu.delete()
                             await m.reply_text(f"🚫 error: `{ep}`")
