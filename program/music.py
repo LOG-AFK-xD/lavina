@@ -266,7 +266,6 @@ async def play(c: Client, m: Message):
                                 photo=image,
                                 reply_markup=InlineKeyboardMarkup(buttons),
                                 caption=f"📡 Started Streaming Audio 💡\n\n🗂 **Name:** [{songname}]({url}) | `music`\n**⏱ Duration:** `{duration}`\n👤 **Requested By:** {requester}",
-                            )
                         except Exception as ep:
                             await suhu.delete()
                             await m.reply_text(f"🚫 error: `{ep}`")
