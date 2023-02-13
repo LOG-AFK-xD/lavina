@@ -248,7 +248,7 @@ async def play(c: Client, m: Message):
                             reply_markup=InlineKeyboardMarkup(buttons),
                             caption=f"💡 **Track added to queue »** `{pos}`\n\n🗂 **Name:** [{songname}]({url}) | `music`\n**⏱ Duration:** `{duration}`\n🧸 **Request by:** {requester}",
                         )
-                    else:
+                    else: 
                         try:
                             await suhu.edit("🔄 **Joining vc...**")
                             await call_py.join_group_call(
